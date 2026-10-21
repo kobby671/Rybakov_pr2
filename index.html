@@ -1,51 +1,78 @@
-
 <!DOCTYPE html>
 <html lang="ru">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Каталог учебных товаров</title>
+    <meta name="description" content="Адаптивный каталог учебных товаров по данным CSV">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23315efb'/%3E%3Ctext x='32' y='44' font-size='40' text-anchor='middle'%3E%F0%9F%93%9A%3C/text%3E%3C/svg%3E">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Каталог учебных товаров — Практическая №2</title>
+    <script src="data/catalog.js" defer></script>
 </head>
-
 <body>
-
-    <header>
-        <h1>Каталог учебных товаров</h1>
-        <p>Практическая работа №2</p>
+    <header class="site-header">
+        <div class="container">
+            <p class="site-header__eyebrow">Технологии разработки программного обеспечения / Практическая №2</p>
+            <h1>Каталог учебных товаров</h1>
+            <p class="site-header__description">Изучайте книги, курсы и инструменты. Используйте поиск и фильтры, чтобы найти подходящий товар.</p>
+        </div>
     </header>
 
-    <main>
+    <main class="container main-content">
         <div class="page-layout">
+            <aside class="filter-panel" aria-labelledby="filtersTitle">
+                <div class="filter-panel__heading">
+                    <h2 id="filtersTitle">Фильтры</h2>
+                    <p>Настройте подбор товаров</p>
+                </div>
 
-            <aside class="filters">
-                <h2>Фильтры</h2>
+                <div class="filter-control">
+                    <label for="searchInput">Поиск по названию</label>
+                    <input type="search" id="searchInput" placeholder="Например, товар 5" autocomplete="off">
+                </div>
 
-                <label for="categoryFilter">Категория:</label>
-                <select id="categoryFilter">
-                    <option value="all">Все категории</option>
-                </select>
+                <div class="filter-control">
+                    <label for="categoryFilter">Категория</label>
+                    <select id="categoryFilter">
+                        <option value="all">Все категории</option>
+                    </select>
+                </div>
+
+                <div class="filter-control">
+                    <label for="sortSelect">Сортировка</label>
+                    <select id="sortSelect">
+                        <option value="default">По порядку в каталоге</option>
+                        <option value="priceAsc">Сначала дешевле</option>
+                        <option value="priceDesc">Сначала дороже</option>
+                        <option value="ratingDesc">По рейтингу</option>
+                    </select>
+                </div>
+
+                <button class="reset-button" id="resetFilters" type="button">Сбросить фильтры</button>
             </aside>
 
-            <section class="catalog-section">
-                <h2>Товары</h2>
-
-                <div class="catalog" id="catalog">
-                    <p>Здесь появятся карточки товаров</p>
+            <section class="catalog-section" aria-labelledby="catalogTitle">
+                <div class="catalog-section__heading">
+                    <div>
+                        <p class="section-kicker">Данные из catalog.csv</p>
+                        <h2 id="catalogTitle">Все товары</h2>
+                    </div>
+                    <p class="result-count" id="resultCount" aria-live="polite">Загрузка...</p>
+                </div>
+                <div class="catalog" id="catalog" aria-live="polite">
+                    <p class="notice">Загружаем товары...</p>
                 </div>
             </section>
-
         </div>
 
-        <section class="info">
-            <h2>О каталоге</h2>
-            <p>Каталог использует данные из catalog.csv.</p>
+        <section class="info-panel" aria-labelledby="aboutTitle">
+            <h2 id="aboutTitle">О каталоге</h2>
+            <p>Карточки создаются с помощью JavaScript из <code>dataset/catalog.csv</code>. Изображения загружаются из <code>dataset/assets</code>. Значения цветов, отступов и радиуса взяты из <code>dataset/theme.json</code> и перенесены в SCSS-переменные.</p>
         </section>
     </main>
 
-    <footer>
-        <p>Практическая работа №2 — HTML, CSS, SCSS</p>
+    <footer class="site-footer">
+        <div class="container">Практическая работа №2 · HTML · CSS Grid · Flexbox · SCSS · JavaScript</div>
     </footer>
-
 </body>
 </html>
