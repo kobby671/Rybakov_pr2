@@ -1,0 +1,13 @@
+{
+  "name": "rybakov-pr2",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Практическая работа №2 — адаптивный каталог на HTML и SCSS",
+  "scripts": {
+    "build:css": "sass --no-source-map scss/styles.scss css/styles.css",
+    "watch:css": "sass --watch --no-source-map scss/styles.scss css/styles.css"
+  },
+  "devDependencies": {
+    "sass": "^1.69.0"
+  }
+}

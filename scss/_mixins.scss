@@ -1,0 +1,17 @@
+@use "variables" as v;
+
+// Повторяемое оформление панелей и карточек.
+@mixin panel {
+    background: v.$surface;
+    border: 1px solid v.$border;
+    border-radius: v.$radius;
+    box-shadow: v.$shadow;
+}
+
+// Повторяемая видимая подсветка фокуса с клавиатуры.
+@mixin focus-ring {
+    &:focus-visible {
+        outline: 3px solid rgba(v.$accent, 0.35);
+        outline-offset: 2px;
+    }
+}

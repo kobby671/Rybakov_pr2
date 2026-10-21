@@ -1,0 +1,24 @@
+@use "variables" as v;
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+    margin: 0;
+    background: v.$background;
+    color: v.$text;
+    font-family: "Segoe UI", Arial, sans-serif;
+    line-height: 1.5;
+}
+h1, h2, h3, p { margin-top: 0; }
+h1, h2, h3 { line-height: 1.2; }
+button, input, select { font: inherit; }
+button { cursor: pointer; }
+img { max-width: 100%; }
+.container {
+    width: min(100% - 32px, v.$container);
+    margin-inline: auto;
+}
+code {
+    overflow-wrap: anywhere;
+    color: v.$accent;
+}

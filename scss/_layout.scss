@@ -1,0 +1,76 @@
+@use "variables" as v;
+
+.site-header {
+    padding: 54px 0 56px;
+    background: linear-gradient(125deg, #152958 0%, v.$accent 100%);
+    color: v.$surface;
+    &__eyebrow {
+        margin-bottom: v.$space;
+        font-size: 0.85rem;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        opacity: 0.85;
+    }
+    h1 {
+        max-width: 750px;
+        margin-bottom: 14px;
+        font-size: clamp(2rem, 4.4vw, 3.5rem);
+    }
+    &__description {
+        max-width: 680px;
+        margin-bottom: 0;
+        color: #e8eeff;
+        font-size: 1.05rem;
+    }
+}
+.main-content { padding-top: 36px; padding-bottom: 44px; }
+.page-layout {
+    display: grid;
+    grid-template-columns: 260px minmax(0, 1fr);
+    gap: 24px;
+    align-items: start;
+}
+.catalog-section { min-width: 0; }
+.catalog-section__heading {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 18px;
+    h2 { margin-bottom: 0; font-size: 1.75rem; }
+}
+.section-kicker {
+    margin-bottom: 6px;
+    color: v.$accent;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+.catalog {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+}
+.site-footer {
+    padding: 24px 0;
+    border-top: 1px solid v.$border;
+    color: v.$muted;
+    font-size: 0.88rem;
+}
+
+// Breakpoint 1: фильтры переходят над товарами, сетка становится двухколоночной.
+@media (max-width: 980px) {
+    .page-layout { grid-template-columns: minmax(0, 1fr); }
+    .catalog { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+// Breakpoint 2: одна колонка карточек на телефоне.
+@media (max-width: 600px) {
+    .site-header { padding: 38px 0 42px; }
+    .main-content { padding-top: 24px; }
+    .catalog { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+    .catalog-section__heading { align-items: start; }
+}

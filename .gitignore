@@ -1,19 +1,7 @@
-
-# Зависимости проекта
 node_modules/
-
-# Кэш Sass
 .sass-cache/
-
-# Служебные файлы Windows
+.vscode/
+.DS_Store
 Thumbs.db
 Desktop.ini
-
-# Служебные файлы macOS
-.DS_Store
-
-# Локальные настройки редактора
-.vscode/
-
-# Логи
 *.log

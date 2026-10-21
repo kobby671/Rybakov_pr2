@@ -1,0 +1,6 @@
+// Точка входа. Dart Sass собирает эти модули в css/styles.css.
+@use "variables";
+@use "mixins";
+@use "base";
+@use "layout";
+@use "components";

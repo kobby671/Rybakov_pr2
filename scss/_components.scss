@@ -1,0 +1,88 @@
+@use "sass:math";
+@use "variables" as v;
+@use "mixins" as m;
+
+.filter-panel {
+    @include m.panel;
+    padding: 24px;
+    &__heading {
+        margin-bottom: 22px;
+        h2 { margin-bottom: 6px; font-size: 1.35rem; }
+        p { margin-bottom: 0; color: v.$muted; font-size: 0.88rem; }
+    }
+}
+.filter-control {
+    display: flex;
+    flex-direction: column;
+    gap: math.div(v.$space, 2); // 8px — вычисление Sass.
+    margin-bottom: 18px;
+    label { font-size: 0.9rem; font-weight: 600; }
+    input, select {
+        width: 100%;
+        min-width: 0;
+        padding: 11px 12px;
+        border: 1px solid #cbd5e1;
+        border-radius: 9px;
+        background: v.$surface;
+        color: v.$text;
+        @include m.focus-ring;
+    }
+}
+.reset-button {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid v.$accent;
+    border-radius: 9px;
+    background: v.$accent;
+    color: v.$surface;
+    font-weight: 700;
+    transition: background 0.2s;
+    &:hover { background: #2449ce; }
+    @include m.focus-ring;
+}
+.result-count {
+    margin-bottom: 0;
+    color: v.$muted;
+    font-size: 0.9rem;
+}
+.card {
+    @include m.panel;
+    overflow: hidden;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s, box-shadow 0.2s;
+    &:hover { transform: translateY(-3px); box-shadow: 0 15px 36px rgba(31, 41, 55, 0.12); }
+    &__image { display: block; width: 100%; aspect-ratio: 900 / 520; object-fit: cover; background: v.$background; }
+    &__body { display: flex; flex: 1; flex-direction: column; padding: 18px; }
+    &__category {
+        align-self: flex-start;
+        padding: 4px 10px;
+        border-radius: 100px;
+        background: #eef2ff;
+        color: v.$accent;
+        font-size: 0.78rem;
+        font-weight: 700;
+    }
+    &__title { margin: 13px 0 22px; font-size: 1.1rem; }
+    &__meta { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: auto; }
+    &__price { color: v.$text; font-size: 1.12rem; white-space: nowrap; }
+    &__rating { color: #9a6200; background: #fff6db; padding: 4px 8px; border-radius: 7px; font-size: 0.88rem; white-space: nowrap; }
+}
+.notice {
+    grid-column: 1 / -1;
+    padding: 28px;
+    border: 1px dashed #a7b6ce;
+    border-radius: v.$radius;
+    background: v.$surface;
+    color: v.$muted;
+    text-align: center;
+    &--error { border-color: #efb5b5; background: #fff5f5; color: #9f2626; }
+}
+.info-panel {
+    @include m.panel;
+    margin-top: 32px;
+    padding: 24px;
+    h2 { margin-bottom: 10px; font-size: 1.3rem; }
+    p { margin-bottom: 0; color: v.$muted; }
+}
